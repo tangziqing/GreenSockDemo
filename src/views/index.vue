@@ -25,29 +25,10 @@
         tl:new TimelineMax({repeat:-1, repeatDelay:1})
       }
     },
-    created(){
-      this.getData();
-    },
-    watch: {
-      '$route' () {
-        this.getData();
-      }
-    },
-    components: {
-
+    mounted(){
+      this.move();
     },
     methods:{
-        getData(){
-          let uri = location.pathname
-          let a = uri.split('/')[2]
-          if(a == 'name'){
-            this.info = 'this is name'
-          } else if(a == 'good'){
-            this.info = 'this is good'
-          } else if(a == 'help'){
-            this.info = 'this is help'
-          }
-        },
       move(){
         this.tl.add(TweenMax.to("#box", 2, {left: 0, x: 0}));
         this.tl.add(TweenMax.to("#box", 1, {left: 100}));

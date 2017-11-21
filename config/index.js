@@ -31,7 +31,19 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable:{
+
+      '/api'://url输入的相对路径
+        {
+
+          target:'http://api.map.baidu.com/',//实际映射到的目标地址
+
+          changeOrigin:true,//TRUE为本地虚拟服务器来接收、发送请求
+
+          pathRewrite: {'^/api': '/'}
+
+        }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
